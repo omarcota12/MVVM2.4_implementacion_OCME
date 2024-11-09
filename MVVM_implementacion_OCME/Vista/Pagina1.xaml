@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_implementacion_OCME.Vista.Pagina1">
+    <Grid BackgroundColor="Aqua">
+        <StackLayout VerticalOptions="Center">
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                >
+                <Label Text="Mensaje:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       />
+                <Entry 
+                    PlaceholderColor="White"
+                    Placeholder="Escribe su mensaje"
+                    HorizontalOptions="StartAndExpand"
+                    Text="{Binding N1}"
+                    Keyboard="Numeric"
+                    />
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                >
+                <Label Text="#2:"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Entry
+                    PlaceholderColor="White"
+                    Placeholder="Escriba un numero"
+                    Text="{Binding N2}"
+                    Keyboard="Numeric"/>
+            </StackLayout>
+            <Button Text="Sumar"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Command="{Binding Sumarcommand}"
+                        TextTransform="None"
+                        Background="White"
+                        FontAttributes="Bold"
+                        CornerRadius="5"
+                        TextColor="Black"
+                        />
+                <Label Text="{Binding R}"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="35"
+                       />
+       
+</StackLayout>
+    </Grid> 
+
+        <StackLayout HorizontalOptions="Center"
+                     Orientation="Horizontal">
+            <Label TextColor="White"
+                   FontAttributes="Bold"
+                   Text="Picker: "
+                   VerticalOptions="Center"/>
+            <Picker HorizontalOptions="FillAndExpand"
+                    Title="Selecciones una opcion"
+                    SelectedItem="{Binding SeleccionarTipoUsuario}">
+               
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Administrador</x:String>
+                        <x:String>Empleado</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+</ContentPage>
