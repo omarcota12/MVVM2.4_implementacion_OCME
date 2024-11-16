@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_implementacion_OCME.Vista.Pagina2">
+    <Grid>
+        <Image Source="flechavolver.png"/>
+        <CollectionView ItemsSource="{Binding Listausuarios}"
+                        VerticalOptions="Center"
+                        Margin="0,60,0,0"
+                        x:Name="listauser">
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+                    <Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding
+                                Path=BindingContext.Alertacommand,Source=
+                                {x:Reference listauser}}"
+                                                  CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Image Source="{Binding Imagen}"
+                               HeightRequest="100"/>
+                            <Label Text="{Binding Nombre}"
+                               VerticalOptions="Center"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
